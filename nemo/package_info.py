@@ -15,7 +15,7 @@
 
 MAJOR = 2
 MINOR = 0
-PATCH = 0
+PATCH = 1
 PRE_RELEASE = 'rc3'
 
 # Use the following formatting: (major, minor, patch, pre-release)

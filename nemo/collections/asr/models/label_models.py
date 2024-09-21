@@ -457,18 +457,18 @@ class EncDecSpeakerLabelModel(ModelPT, ExportableEncDecModel, VerificationMixin)
         """
         if isinstance(sourceAudio, str):
             audio, sr = sf.read(sourceAudio, dtype="float32")
-            print(f"shape of audio after reading from ifle: {audio.shape}")
-            print(f"the audio in infer_file when filereading: {audio}")
+            # print(f"shape of audio after reading from ifle: {audio.shape}")
+            # print(f"the audio in infer_file when filereading: {audio}")
         elif isinstance(sourceAudio, np.ndarray):
-            print(f"shape of audio after reading from arr: {sourceAudio.shape}")
+            # print(f"shape of audio after reading from arr: {sourceAudio.shape}")
             audio, sr = sourceAudio, 16000
-            print(f"the audio in infer_file when arr: {audio}")
+            # print(f"the audio in infer_file when arr: {audio}")
 
         target_sr = self._cfg.train_ds.get('sample_rate', 16000)
         if sr != target_sr:
             audio = librosa.core.resample(audio, orig_sr=sr, target_sr=target_sr)
         audio_length = audio.shape[0]
-        print(f"shape of audio inside model: {audio.shape}")
+        # print(f"shape of audio inside model: {audio.shape}")
         device = self.device
         # if not isinstance(sourceAudio, np.ndarray):
         audio = np.array([audio])
